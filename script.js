@@ -3,7 +3,7 @@
 
 async function getData(){
     try{
-    const odpovet = await fetch('data.json');
+    const odpovet = await fetch('https://v2.jokeapi.dev/');
     const data = await odpovet.json();
     console.log(data);
     }
@@ -12,8 +12,9 @@ async function getData(){
     }
 }
 
-getData();
-
+document.getElementById('btn').addEventListener('click',()=>{
+    getData();
+});
 
 /*
 const jsonFile = `[
