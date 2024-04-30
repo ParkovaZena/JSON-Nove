@@ -1,16 +1,21 @@
 
 //ascync await
 
+const ulr='https://official-joke-api.appspot.com/jokes/random';
+
 async function getData(){
     try{
-    const odpovet = await fetch('https://v2.jokeapi.dev/');
+    const odpovet = await fetch(ulr);
     const data = await odpovet.json();
-    console.log(data);
+    document.querySelector('p').innerText=data.punchline;
+    document.querySelector('h1').innerText=data.setup;
     }
     catch(error){
         console.log(error);
     }
 }
+
+getData();
 
 document.getElementById('btn').addEventListener('click',()=>{
     getData();
